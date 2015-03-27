@@ -2,6 +2,11 @@ use strict;
 use warnings;
 use Inline::MakeMaker;
 
+sub MY::libscan {
+	return if ($_[1] eq 'USB.pm' or $_[1] eq 'dump_usb.pl');
+	return $_[1];
+}
+
 if($^O eq 'MSWin32')
 {
     if(!$ENV{LIBUSB_LIBDIR} or !$ENV{LIBUSB_INCDIR})
